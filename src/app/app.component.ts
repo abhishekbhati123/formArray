@@ -1,11 +1,18 @@
 import { Component, VERSION } from '@angular/core';
+import {
+  FormControl,
+  Validators,
+  FormGroup,
+  FormBuilder,
+  FormArray,
+} from '@angular/forms';
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent  {
+export class AppComponent {
   title = 'angularcrudapp';
   skillForm: FormGroup;
   constructor(private fb: FormBuilder) {
@@ -16,7 +23,7 @@ export class AppComponent  {
   }
 
   get skills(): FormArray {
-    //here we return the skills formsArray from the skillForms
+    //here we return the skills formsArray from the skillForm
     return this.skillForm.get('skills') as FormArray;
   }
   newSkill(): FormGroup {
